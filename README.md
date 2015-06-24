@@ -5,7 +5,7 @@ Currently under active development.
 # Requirements
 
 - iOS 8.0+ 
-- Xcode 6.3
+- Xcode 7.0 Beta
 
 # License
 The MIT License (MIT)
