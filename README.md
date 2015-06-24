@@ -1,6 +1,11 @@
 # Stick-Hero-Swift
-a universal iOS Game using Swift and iOS SpriteKit.
+a universal iOS Game using Swift 2 and iOS SpriteKit.
 Currently under active development.
+
+# Requirements
+
+- iOS 8.0+ 
+- Xcode 6.3
 
 # License
 The MIT License (MIT)
