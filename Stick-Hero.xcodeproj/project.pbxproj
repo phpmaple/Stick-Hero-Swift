@@ -7,50 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733263D81B33C592003A3B2F /* bg_country.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 733263D21B33C592003A3B2F /* bg_country.mp3 */; };
+		733263D91B33C592003A3B2F /* dead.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D31B33C592003A3B2F /* dead.wav */; };
+		733263DA1B33C592003A3B2F /* fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D41B33C592003A3B2F /* fall.wav */; };
+		733263DB1B33C592003A3B2F /* kick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D51B33C592003A3B2F /* kick.wav */; };
+		733263DC1B33C592003A3B2F /* stick_grow_loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D61B33C592003A3B2F /* stick_grow_loop.wav */; };
+		733263DD1B33C592003A3B2F /* victory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D71B33C592003A3B2F /* victory.wav */; };
+		733263E01B33C5E9003A3B2F /* human1.png in Resources */ = {isa = PBXBuildFile; fileRef = 733263DE1B33C5E9003A3B2F /* human1.png */; };
+		733263E11B33C5E9003A3B2F /* human2.png in Resources */ = {isa = PBXBuildFile; fileRef = 733263DF1B33C5E9003A3B2F /* human2.png */; };
+		733263E71B33C68D003A3B2F /* StickHeroGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */; };
 		73B7AD5B1B33BEC400115CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD5A1B33BEC400115CAD /* AppDelegate.swift */; };
-		73B7AD5D1B33BEC400115CAD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73B7AD5C1B33BEC400115CAD /* GameScene.sks */; };
-		73B7AD5F1B33BEC400115CAD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD5E1B33BEC400115CAD /* GameScene.swift */; };
 		73B7AD611B33BEC400115CAD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD601B33BEC400115CAD /* GameViewController.swift */; };
 		73B7AD641B33BEC400115CAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B7AD621B33BEC400115CAD /* Main.storyboard */; };
 		73B7AD661B33BEC400115CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B7AD651B33BEC400115CAD /* Assets.xcassets */; };
 		73B7AD691B33BEC400115CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B7AD671B33BEC400115CAD /* LaunchScreen.storyboard */; };
-		73B7AD741B33BEC400115CAD /* Stick_HeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD731B33BEC400115CAD /* Stick_HeroTests.swift */; };
-		73B7AD7F1B33BEC400115CAD /* Stick_HeroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD7E1B33BEC400115CAD /* Stick_HeroUITests.swift */; };
+		73DBBA9C1B3913D00050C4EF /* stick_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73DBBA9B1B3913D00050C4EF /* stick_background.jpg */; };
+		73DBBA9E1B39377D0050C4EF /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DBBA9D1B39377D0050C4EF /* Tools.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		73B7AD701B33BEC400115CAD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 73B7AD4F1B33BEC400115CAD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 73B7AD561B33BEC400115CAD;
-			remoteInfo = "Stick-Hero";
-		};
-		73B7AD7B1B33BEC400115CAD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 73B7AD4F1B33BEC400115CAD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 73B7AD561B33BEC400115CAD;
-			remoteInfo = "Stick-Hero";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		733263D21B33C592003A3B2F /* bg_country.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_country.mp3; sourceTree = "<group>"; };
+		733263D31B33C592003A3B2F /* dead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dead.wav; sourceTree = "<group>"; };
+		733263D41B33C592003A3B2F /* fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fall.wav; sourceTree = "<group>"; };
+		733263D51B33C592003A3B2F /* kick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kick.wav; sourceTree = "<group>"; };
+		733263D61B33C592003A3B2F /* stick_grow_loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stick_grow_loop.wav; sourceTree = "<group>"; };
+		733263D71B33C592003A3B2F /* victory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victory.wav; sourceTree = "<group>"; };
+		733263DE1B33C5E9003A3B2F /* human1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human1.png; sourceTree = "<group>"; };
+		733263DF1B33C5E9003A3B2F /* human2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human2.png; sourceTree = "<group>"; };
+		733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickHeroGameScene.swift; sourceTree = "<group>"; };
 		73B7AD571B33BEC400115CAD /* Stick-Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stick-Hero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B7AD5A1B33BEC400115CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		73B7AD5C1B33BEC400115CAD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		73B7AD5E1B33BEC400115CAD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		73B7AD601B33BEC400115CAD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		73B7AD631B33BEC400115CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73B7AD651B33BEC400115CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73B7AD681B33BEC400115CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73B7AD6A1B33BEC400115CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73B7AD6F1B33BEC400115CAD /* Stick-HeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stick-HeroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B7AD731B33BEC400115CAD /* Stick_HeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stick_HeroTests.swift; sourceTree = "<group>"; };
-		73B7AD751B33BEC400115CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73B7AD7A1B33BEC400115CAD /* Stick-HeroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stick-HeroUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B7AD7E1B33BEC400115CAD /* Stick_HeroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stick_HeroUITests.swift; sourceTree = "<group>"; };
-		73B7AD801B33BEC400115CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DBBA9B1B3913D00050C4EF /* stick_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stick_background.jpg; sourceTree = "<group>"; };
+		73DBBA9D1B39377D0050C4EF /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,29 +54,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		73B7AD6C1B33BEC400115CAD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		73B7AD771B33BEC400115CAD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		733263CD1B33C511003A3B2F /* Atlas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Atlas;
+			path = Assets/Atlas;
+			sourceTree = SOURCE_ROOT;
+		};
+		733263CE1B33C511003A3B2F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				73DBBA9B1B3913D00050C4EF /* stick_background.jpg */,
+				733263DE1B33C5E9003A3B2F /* human1.png */,
+				733263DF1B33C5E9003A3B2F /* human2.png */,
+			);
+			name = Images;
+			path = Assets/Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		733263CF1B33C511003A3B2F /* Sks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sks;
+			path = Assets/Sks;
+			sourceTree = SOURCE_ROOT;
+		};
+		733263D01B33C511003A3B2F /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				733263D21B33C592003A3B2F /* bg_country.mp3 */,
+				733263D31B33C592003A3B2F /* dead.wav */,
+				733263D41B33C592003A3B2F /* fall.wav */,
+				733263D51B33C592003A3B2F /* kick.wav */,
+				733263D61B33C592003A3B2F /* stick_grow_loop.wav */,
+				733263D71B33C592003A3B2F /* victory.wav */,
+			);
+			name = Sound;
+			path = Assets/Sound;
+			sourceTree = SOURCE_ROOT;
+		};
+		733263D11B33C55B003A3B2F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */,
+				73DBBA9D1B39377D0050C4EF /* Tools.swift */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		73B7AD4E1B33BEC400115CAD = {
 			isa = PBXGroup;
 			children = (
 				73B7AD591B33BEC400115CAD /* Stick-Hero */,
-				73B7AD721B33BEC400115CAD /* Stick-HeroTests */,
-				73B7AD7D1B33BEC400115CAD /* Stick-HeroUITests */,
 				73B7AD581B33BEC400115CAD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				73B7AD571B33BEC400115CAD /* Stick-Hero.app */,
-				73B7AD6F1B33BEC400115CAD /* Stick-HeroTests.xctest */,
-				73B7AD7A1B33BEC400115CAD /* Stick-HeroUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,9 +126,9 @@
 		73B7AD591B33BEC400115CAD /* Stick-Hero */ = {
 			isa = PBXGroup;
 			children = (
+				73B7AD8C1B33C22400115CAD /* Assets */,
+				733263D11B33C55B003A3B2F /* Scene */,
 				73B7AD5A1B33BEC400115CAD /* AppDelegate.swift */,
-				73B7AD5C1B33BEC400115CAD /* GameScene.sks */,
-				73B7AD5E1B33BEC400115CAD /* GameScene.swift */,
 				73B7AD601B33BEC400115CAD /* GameViewController.swift */,
 				73B7AD621B33BEC400115CAD /* Main.storyboard */,
 				73B7AD651B33BEC400115CAD /* Assets.xcassets */,
@@ -113,22 +138,15 @@
 			path = "Stick-Hero";
 			sourceTree = "<group>";
 		};
-		73B7AD721B33BEC400115CAD /* Stick-HeroTests */ = {
+		73B7AD8C1B33C22400115CAD /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				73B7AD731B33BEC400115CAD /* Stick_HeroTests.swift */,
-				73B7AD751B33BEC400115CAD /* Info.plist */,
+				733263CD1B33C511003A3B2F /* Atlas */,
+				733263CE1B33C511003A3B2F /* Images */,
+				733263CF1B33C511003A3B2F /* Sks */,
+				733263D01B33C511003A3B2F /* Sound */,
 			);
-			path = "Stick-HeroTests";
-			sourceTree = "<group>";
-		};
-		73B7AD7D1B33BEC400115CAD /* Stick-HeroUITests */ = {
-			isa = PBXGroup;
-			children = (
-				73B7AD7E1B33BEC400115CAD /* Stick_HeroUITests.swift */,
-				73B7AD801B33BEC400115CAD /* Info.plist */,
-			);
-			path = "Stick-HeroUITests";
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,42 +169,6 @@
 			productReference = 73B7AD571B33BEC400115CAD /* Stick-Hero.app */;
 			productType = "com.apple.product-type.application";
 		};
-		73B7AD6E1B33BEC400115CAD /* Stick-HeroTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 73B7AD861B33BEC400115CAD /* Build configuration list for PBXNativeTarget "Stick-HeroTests" */;
-			buildPhases = (
-				73B7AD6B1B33BEC400115CAD /* Sources */,
-				73B7AD6C1B33BEC400115CAD /* Frameworks */,
-				73B7AD6D1B33BEC400115CAD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				73B7AD711B33BEC400115CAD /* PBXTargetDependency */,
-			);
-			name = "Stick-HeroTests";
-			productName = "Stick-HeroTests";
-			productReference = 73B7AD6F1B33BEC400115CAD /* Stick-HeroTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		73B7AD791B33BEC400115CAD /* Stick-HeroUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 73B7AD891B33BEC400115CAD /* Build configuration list for PBXNativeTarget "Stick-HeroUITests" */;
-			buildPhases = (
-				73B7AD761B33BEC400115CAD /* Sources */,
-				73B7AD771B33BEC400115CAD /* Frameworks */,
-				73B7AD781B33BEC400115CAD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				73B7AD7C1B33BEC400115CAD /* PBXTargetDependency */,
-			);
-			name = "Stick-HeroUITests";
-			productName = "Stick-HeroUITests";
-			productReference = 73B7AD7A1B33BEC400115CAD /* Stick-HeroUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,14 +180,6 @@
 				TargetAttributes = {
 					73B7AD561B33BEC400115CAD = {
 						CreatedOnToolsVersion = 7.0;
-					};
-					73B7AD6E1B33BEC400115CAD = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 73B7AD561B33BEC400115CAD;
-					};
-					73B7AD791B33BEC400115CAD = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 73B7AD561B33BEC400115CAD;
 					};
 				};
 			};
@@ -223,8 +197,6 @@
 			projectRoot = "";
 			targets = (
 				73B7AD561B33BEC400115CAD /* Stick-Hero */,
-				73B7AD6E1B33BEC400115CAD /* Stick-HeroTests */,
-				73B7AD791B33BEC400115CAD /* Stick-HeroUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,24 +206,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B7AD5D1B33BEC400115CAD /* GameScene.sks in Resources */,
+				733263DB1B33C592003A3B2F /* kick.wav in Resources */,
+				733263E11B33C5E9003A3B2F /* human2.png in Resources */,
+				733263D91B33C592003A3B2F /* dead.wav in Resources */,
+				733263D81B33C592003A3B2F /* bg_country.mp3 in Resources */,
+				73DBBA9C1B3913D00050C4EF /* stick_background.jpg in Resources */,
 				73B7AD691B33BEC400115CAD /* LaunchScreen.storyboard in Resources */,
+				733263DC1B33C592003A3B2F /* stick_grow_loop.wav in Resources */,
+				733263E01B33C5E9003A3B2F /* human1.png in Resources */,
+				733263DA1B33C592003A3B2F /* fall.wav in Resources */,
 				73B7AD661B33BEC400115CAD /* Assets.xcassets in Resources */,
 				73B7AD641B33BEC400115CAD /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		73B7AD6D1B33BEC400115CAD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		73B7AD781B33BEC400115CAD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				733263DD1B33C592003A3B2F /* victory.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,42 +228,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B7AD5F1B33BEC400115CAD /* GameScene.swift in Sources */,
 				73B7AD611B33BEC400115CAD /* GameViewController.swift in Sources */,
+				733263E71B33C68D003A3B2F /* StickHeroGameScene.swift in Sources */,
 				73B7AD5B1B33BEC400115CAD /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		73B7AD6B1B33BEC400115CAD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				73B7AD741B33BEC400115CAD /* Stick_HeroTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		73B7AD761B33BEC400115CAD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				73B7AD7F1B33BEC400115CAD /* Stick_HeroUITests.swift in Sources */,
+				73DBBA9E1B39377D0050C4EF /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		73B7AD711B33BEC400115CAD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 73B7AD561B33BEC400115CAD /* Stick-Hero */;
-			targetProxy = 73B7AD701B33BEC400115CAD /* PBXContainerItemProxy */;
-		};
-		73B7AD7C1B33BEC400115CAD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 73B7AD561B33BEC400115CAD /* Stick-Hero */;
-			targetProxy = 73B7AD7B1B33BEC400115CAD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73B7AD621B33BEC400115CAD /* Main.storyboard */ = {
@@ -355,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -394,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,54 +362,6 @@
 			};
 			name = Release;
 		};
-		73B7AD871B33BEC400115CAD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Stick-HeroTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-HeroTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stick-Hero.app/Stick-Hero";
-			};
-			name = Debug;
-		};
-		73B7AD881B33BEC400115CAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Stick-HeroTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-HeroTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stick-Hero.app/Stick-Hero";
-			};
-			name = Release;
-		};
-		73B7AD8A1B33BEC400115CAD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Stick-HeroUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-HeroUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Stick-Hero";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		73B7AD8B1B33BEC400115CAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Stick-HeroUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-HeroUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Stick-Hero";
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -491,22 +381,7 @@
 				73B7AD851B33BEC400115CAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		73B7AD861B33BEC400115CAD /* Build configuration list for PBXNativeTarget "Stick-HeroTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				73B7AD871B33BEC400115CAD /* Debug */,
-				73B7AD881B33BEC400115CAD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		73B7AD891B33BEC400115CAD /* Build configuration list for PBXNativeTarget "Stick-HeroUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				73B7AD8A1B33BEC400115CAD /* Debug */,
-				73B7AD8B1B33BEC400115CAD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
