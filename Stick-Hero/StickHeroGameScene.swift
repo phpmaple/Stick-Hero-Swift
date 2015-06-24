@@ -66,6 +66,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         return SKAction.repeatActionForever(action)
         }()
     
+    //MARK: - override
     override init(size: CGSize) {
         super.init(size: size)
         anchorPoint = CGPointMake(0.5, 0.5)
@@ -75,21 +76,6 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMoveToView(view: SKView) {
         start()
-    }
-    
-    func start() {
-        loadBackground()
-        loadScoreBackground()
-        loadScore()
-        loadTip()
-        leftStack = loadStacks(false, startLeftPoint: nextLeftStartX)
-        loadHero()
-        
-        let maxGap = Int(playAbleRect.width - nextLeftStartX - 300)
-        let gap = CGFloat(randomInRange(80...maxGap))
-        rightStack = loadStacks(false, startLeftPoint: nextLeftStartX + gap)
-        
-        gameOver = false
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -158,7 +144,22 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func heroGo(pass:Bool) {
+    func start() {
+        loadBackground()
+        loadScoreBackground()
+        loadScore()
+        loadTip()
+        leftStack = loadStacks(false, startLeftPoint: nextLeftStartX)
+        loadHero()
+        
+        let maxGap = Int(playAbleRect.width - nextLeftStartX - 300)
+        let gap = CGFloat(randomInRange(80...maxGap))
+        rightStack = loadStacks(false, startLeftPoint: nextLeftStartX + gap)
+        
+        gameOver = false
+    }
+    
+    private func heroGo(pass:Bool) {
         let speed:CGFloat = 760
         let hero = childNodeWithName(HeroName) as! SKSpriteNode
         
@@ -200,7 +201,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func moveStackAndCreateNew() {
+    private func moveStackAndCreateNew() {
         let action = SKAction.moveBy(CGVectorMake(-nextLeftStartX + (rightStack?.frame.size.width)! + playAbleRect.origin.x - 2, 0), duration: 0.3)
         rightStack?.runAction(action)
         let hero = childNodeWithName(HeroName) as! SKSpriteNode
@@ -221,11 +222,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             self.rightStack = self.loadStacks(true, startLeftPoint:self.playAbleRect.origin.x + (self.rightStack?.frame.size.width)! + gap)
         })
     }
-    
-    deinit {
-        
-    }
-    
+  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

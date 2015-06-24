@@ -15,7 +15,6 @@
 		733263DD1B33C592003A3B2F /* victory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D71B33C592003A3B2F /* victory.wav */; };
 		733263E01B33C5E9003A3B2F /* human1.png in Resources */ = {isa = PBXBuildFile; fileRef = 733263DE1B33C5E9003A3B2F /* human1.png */; };
 		733263E11B33C5E9003A3B2F /* human2.png in Resources */ = {isa = PBXBuildFile; fileRef = 733263DF1B33C5E9003A3B2F /* human2.png */; };
-		733263E51B33C682003A3B2F /* StickHeroGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 733263E41B33C682003A3B2F /* StickHeroGameScene.sks */; };
 		733263E71B33C68D003A3B2F /* StickHeroGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */; };
 		73B7AD5B1B33BEC400115CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD5A1B33BEC400115CAD /* AppDelegate.swift */; };
 		73B7AD611B33BEC400115CAD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7AD601B33BEC400115CAD /* GameViewController.swift */; };
@@ -35,7 +34,6 @@
 		733263D71B33C592003A3B2F /* victory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victory.wav; sourceTree = "<group>"; };
 		733263DE1B33C5E9003A3B2F /* human1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human1.png; sourceTree = "<group>"; };
 		733263DF1B33C5E9003A3B2F /* human2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = human2.png; sourceTree = "<group>"; };
-		733263E41B33C682003A3B2F /* StickHeroGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StickHeroGameScene.sks; sourceTree = "<group>"; };
 		733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickHeroGameScene.swift; sourceTree = "<group>"; };
 		73B7AD571B33BEC400115CAD /* Stick-Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stick-Hero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B7AD5A1B33BEC400115CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		733263CF1B33C511003A3B2F /* Sks */ = {
 			isa = PBXGroup;
 			children = (
-				733263E41B33C682003A3B2F /* StickHeroGameScene.sks */,
 			);
 			name = Sks;
 			path = Assets/Sks;
@@ -219,7 +216,6 @@
 				733263E01B33C5E9003A3B2F /* human1.png in Resources */,
 				733263DA1B33C592003A3B2F /* fall.wav in Resources */,
 				73B7AD661B33BEC400115CAD /* Assets.xcassets in Resources */,
-				733263E51B33C682003A3B2F /* StickHeroGameScene.sks in Resources */,
 				73B7AD641B33BEC400115CAD /* Main.storyboard in Resources */,
 				733263DD1B33C592003A3B2F /* victory.wav in Resources */,
 			);

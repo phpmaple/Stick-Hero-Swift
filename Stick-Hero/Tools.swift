@@ -13,8 +13,6 @@ func randomInRange(range: Range<Int>) -> Int {
     return  Int(arc4random_uniform(count)) + range.startIndex
 }
 
-
-//MARK: - HEX Color
 extension UIColor {
     class func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
