@@ -88,10 +88,6 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         guard isBegin && isEnd else {
             isBegin = true
-            let stickOld = childNodeWithName("stick") as? SKSpriteNode
-            if let stickOld = stickOld {
-                stickOld.name = "stick_old"
-            }
             
             let stick = SKSpriteNode(color: SKColor.blackColor(), size: CGSizeMake(12, 1))
             stick.zPosition = 50
@@ -190,10 +186,6 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         hero.runAction(walkAction, withKey: "walk")
         hero.runAction(move) { [unowned self]() -> Void in
             self.score++
-            let stickOld = self.childNodeWithName("stick_old") as? SKSpriteNode
-            if let stickOld = stickOld {
-                stickOld.removeFromParent()
-            }
             
             hero.runAction(SKAction.playSoundFileNamed("victory.wav", waitForCompletion: false), withKey: "audio_hero_victory")
             hero.removeActionForKey("walk")
@@ -202,15 +194,17 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveStackAndCreateNew() {
-        let action = SKAction.moveBy(CGVectorMake(-nextLeftStartX + (rightStack?.frame.size.width)! + playAbleRect.origin.x - 2, 0), duration: 0.5)
+        let action = SKAction.moveBy(CGVectorMake(-nextLeftStartX + (rightStack?.frame.size.width)! + playAbleRect.origin.x - 2, 0), duration: 0.3)
         rightStack?.runAction(action)
         let hero = childNodeWithName(HeroName) as! SKSpriteNode
         let stick = childNodeWithName("stick") as! SKSpriteNode
         
         hero.runAction(action)
-        stick.runAction(action)
+        stick.runAction(SKAction.group([SKAction.moveBy(CGVectorMake(-1536, 0), duration: 0.5), SKAction.fadeAlphaTo(0, duration: 0.3)])) { () -> Void in
+            stick.removeFromParent()
+        }
 
-        leftStack?.runAction(action, completion: {[unowned self] () -> Void in
+        leftStack?.runAction(SKAction.moveBy(CGVectorMake(-1536, 0), duration: 0.5), completion: {[unowned self] () -> Void in
             self.leftStack?.removeFromParent()
             
             let maxGap = Int(self.playAbleRect.width - (self.rightStack?.frame.size.width)! - 300)
