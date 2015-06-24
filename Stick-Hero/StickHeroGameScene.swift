@@ -38,6 +38,12 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         willSet {
             let scoreBand = childNodeWithName("score") as? SKLabelNode
             scoreBand?.text = "\(newValue)"
+            scoreBand?.runAction(SKAction.sequence([SKAction.scaleTo(1.5, duration: 0.1), SKAction.scaleTo(1, duration: 0.1)]))
+            
+            if (newValue == 1) {
+                let tip = childNodeWithName("tip") as? SKLabelNode
+                tip?.runAction(SKAction.fadeAlphaTo(0, duration: 0.4))
+            }
         }
     }
     
@@ -73,6 +79,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     
     func start() {
         loadBackground()
+        loadScoreBackground()
         loadScore()
         loadTip()
         leftStack = loadStacks(false, startLeftPoint: nextLeftStartX)
@@ -251,6 +258,13 @@ private extension StickHeroGameScene {
         scoreBand.horizontalAlignmentMode = .Center
         
         addChild(scoreBand)
+    }
+    
+    func loadScoreBackground() {
+        let back = SKShapeNode(rect: CGRectMake(0-120, 1024-200-30, 240, 140), cornerRadius: 20)
+        back.zPosition = 50
+        back.fillColor = SKColor.blackColor().colorWithAlphaComponent(0.3)
+        addChild(back)
     }
     
     func loadHero() {
