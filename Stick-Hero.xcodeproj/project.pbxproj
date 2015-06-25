@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730ED6DE1B3BA3DA0041F888 /* touch_mid.wav in Resources */ = {isa = PBXBuildFile; fileRef = 730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */; };
+		730ED6E01B3BA6FD0041F888 /* Defined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730ED6DF1B3BA6FD0041F888 /* Defined.swift */; };
 		733263D81B33C592003A3B2F /* bg_country.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 733263D21B33C592003A3B2F /* bg_country.mp3 */; };
 		733263D91B33C592003A3B2F /* dead.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D31B33C592003A3B2F /* dead.wav */; };
 		733263DA1B33C592003A3B2F /* fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D41B33C592003A3B2F /* fall.wav */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = touch_mid.wav; sourceTree = "<group>"; };
+		730ED6DF1B3BA6FD0041F888 /* Defined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defined.swift; sourceTree = "<group>"; };
 		733263D21B33C592003A3B2F /* bg_country.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_country.mp3; sourceTree = "<group>"; };
 		733263D31B33C592003A3B2F /* dead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dead.wav; sourceTree = "<group>"; };
 		733263D41B33C592003A3B2F /* fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fall.wav; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		733263D01B33C511003A3B2F /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */,
 				733263D21B33C592003A3B2F /* bg_country.mp3 */,
 				733263D31B33C592003A3B2F /* dead.wav */,
 				733263D41B33C592003A3B2F /* fall.wav */,
@@ -103,6 +108,7 @@
 			children = (
 				733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */,
 				73DBBA9D1B39377D0050C4EF /* Tools.swift */,
+				730ED6DF1B3BA6FD0041F888 /* Defined.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730ED6DE1B3BA3DA0041F888 /* touch_mid.wav in Resources */,
 				733263DB1B33C592003A3B2F /* kick.wav in Resources */,
 				733263E11B33C5E9003A3B2F /* human2.png in Resources */,
 				733263D91B33C592003A3B2F /* dead.wav in Resources */,
@@ -231,6 +238,7 @@
 				73B7AD611B33BEC400115CAD /* GameViewController.swift in Sources */,
 				733263E71B33C68D003A3B2F /* StickHeroGameScene.swift in Sources */,
 				73B7AD5B1B33BEC400115CAD /* AppDelegate.swift in Sources */,
+				730ED6E01B3BA6FD0041F888 /* Defined.swift in Sources */,
 				73DBBA9E1B39377D0050C4EF /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
