@@ -39,9 +39,9 @@ enum StickHeroGameSceneEffectAudioName: String {
 
 enum StickHeroGameSceneZposition: CGFloat {
     case BackgroundZposition = 0
-    case StackZposition = 10
-    case StackMidZposition = 15
-    case StickZposition = 20
+    case StackZposition = 30
+    case StackMidZposition = 35
+    case StickZposition = 40
     case ScoreBackgroundZposition = 50
     case HeroZposition, ScoreZposition, TipZposition = 100
 }

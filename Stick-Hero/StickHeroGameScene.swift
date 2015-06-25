@@ -83,17 +83,11 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        guard isBegin && isEnd else {
+        if !isBegin && !isEnd {
             isBegin = true
             
-            let stick = SKSpriteNode(color: SKColor.blackColor(), size: CGSizeMake(12, 1))
-            stick.zPosition = StickHeroGameSceneZposition.StickZposition.rawValue
-            stick.name = StickHeroGameSceneChildName.StickName.rawValue
-            stick.anchorPoint = CGPointMake(0.5, 0);
-            
+            let stick = loadStick()
             let hero = childNodeWithName(StickHeroGameSceneChildName.HeroName.rawValue) as! SKSpriteNode
-            stick.position = CGPointMake(hero.position.x + hero.size.width / 2 + 18, hero.position.y - hero.size.height / 2)
-            addChild(stick)
      
             let action = SKAction.resizeToHeight(CGFloat(DefinedScreenHeight - StackHeight), duration: 1.5)
             stick.runAction(action, withKey:StickHeroGameSceneActionKey.StickGrowAction.rawValue)
@@ -110,6 +104,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if isBegin && !isEnd {
             isEnd  = true
+            
             let hero = childNodeWithName(StickHeroGameSceneChildName.HeroName.rawValue) as! SKSpriteNode
             hero.removeActionForKey(StickHeroGameSceneActionKey.HeroScaleAction.rawValue)
             hero.runAction(SKAction.scaleYTo(1, duration: 0.04))
@@ -137,7 +132,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         loadTip()
  
         leftStack = loadStacks(false, startLeftPoint: playAbleRect.origin.x)
-        self.removeMidTouch(false)
+        self.removeMidTouch(false, left:true)
         loadHero()
  
         let maxGap = Int(playAbleRect.width - StackMaxWidth - (leftStack?.frame.size.width)!)
@@ -178,20 +173,21 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
  
     }
     
-    private func removeMidTouch(animate:Bool) {
-        let leftMid = leftStack?.childNodeWithName(StickHeroGameSceneChildName.StackMidName.rawValue) as! SKShapeNode
+    private func removeMidTouch(animate:Bool, left:Bool) {
+        let stack = left ? leftStack : rightStack
+        let mid = stack!.childNodeWithName(StickHeroGameSceneChildName.StackMidName.rawValue) as! SKShapeNode
         if (animate) {
-            leftMid.runAction(SKAction.fadeAlphaTo(0, duration: 0.15))
+            mid.runAction(SKAction.fadeAlphaTo(0, duration: 0.3))
         }
         else {
-            leftMid.removeFromParent()
+            mid.removeFromParent()
         }
     }
     
     private func heroGo(pass:Bool) {
         let hero = childNodeWithName(StickHeroGameSceneChildName.HeroName.rawValue) as! SKSpriteNode
         
-        guard pass else {//失败
+        guard pass else {
             let stick = childNodeWithName(StickHeroGameSceneChildName.StickName.rawValue) as! SKSpriteNode
             
             let dis:CGFloat = stick.position.x + self.stickHeight
@@ -232,6 +228,8 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     private func moveStackAndCreateNew() {
         let action = SKAction.moveBy(CGVectorMake(-nextLeftStartX + (rightStack?.frame.size.width)! + playAbleRect.origin.x - 2, 0), duration: 0.3)
         rightStack?.runAction(action)
+        self.removeMidTouch(true, left:false)
+
         let hero = childNodeWithName(StickHeroGameSceneChildName.HeroName.rawValue) as! SKSpriteNode
         let stick = childNodeWithName(StickHeroGameSceneChildName.StickName.rawValue) as! SKSpriteNode
         
@@ -239,7 +237,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         stick.runAction(SKAction.group([SKAction.moveBy(CGVectorMake(-DefinedScreenWidth, 0), duration: 0.5), SKAction.fadeAlphaTo(0, duration: 0.3)])) { () -> Void in
             stick.removeFromParent()
         }
-
+        
         leftStack?.runAction(SKAction.moveBy(CGVectorMake(-DefinedScreenWidth, 0), duration: 0.5), completion: {[unowned self] () -> Void in
             self.leftStack?.removeFromParent()
             
@@ -288,6 +286,7 @@ private extension StickHeroGameScene {
         let back = SKShapeNode(rect: CGRectMake(0-120, 1024-200-30, 240, 140), cornerRadius: 20)
         back.zPosition = StickHeroGameSceneZposition.ScoreBackgroundZposition.rawValue
         back.fillColor = SKColor.blackColor().colorWithAlphaComponent(0.3)
+        back.strokeColor = SKColor.blackColor().colorWithAlphaComponent(0.3)
         addChild(back)
     }
     
@@ -316,6 +315,19 @@ private extension StickHeroGameScene {
         addChild(tip)
     }
     
+    func loadStick() -> SKSpriteNode {
+        let hero = childNodeWithName(StickHeroGameSceneChildName.HeroName.rawValue) as! SKSpriteNode
+
+        let stick = SKSpriteNode(color: SKColor.blackColor(), size: CGSizeMake(12, 1))
+        stick.zPosition = StickHeroGameSceneZposition.StickZposition.rawValue
+        stick.name = StickHeroGameSceneChildName.StickName.rawValue
+        stick.anchorPoint = CGPointMake(0.5, 0);
+        stick.position = CGPointMake(hero.position.x + hero.size.width / 2 + 18, hero.position.y - hero.size.height / 2)
+        addChild(stick)
+        
+        return stick
+    }
+    
     func loadStacks(animate: Bool, startLeftPoint: CGFloat) -> SKShapeNode {
         let max:Int = Int(StackMaxWidth / 10)
         let min:Int = Int(StackMinWidth / 10)
@@ -323,13 +335,13 @@ private extension StickHeroGameScene {
         let height:CGFloat = StackHeight
         let stack = SKShapeNode(rectOfSize: CGSizeMake(width, height))
         stack.fillColor = SKColor.blackColor()
+        stack.strokeColor = SKColor.blackColor()
         stack.zPosition = StickHeroGameSceneZposition.StackZposition.rawValue
         stack.name = StickHeroGameSceneChildName.StackName.rawValue
  
         if (animate) {
             stack.position = CGPointMake(DefinedScreenWidth / 2, -DefinedScreenHeight / 2 + height / 2)
             
-            self.removeMidTouch(true)
             stack.runAction(SKAction.moveToX(-DefinedScreenWidth / 2 + width / 2 + startLeftPoint, duration: 0.3), completion: {[unowned self] () -> Void in
                 self.isBegin = false
                 self.isEnd = false
@@ -346,7 +358,7 @@ private extension StickHeroGameScene {
         mid.strokeColor = SKColor.redColor()
         mid.zPosition = StickHeroGameSceneZposition.StackMidZposition.rawValue
         mid.name = StickHeroGameSceneChildName.StackMidName.rawValue
-        mid.position = CGPointMake(0, height / 2 - 20 / 2 - 1)
+        mid.position = CGPointMake(0, height / 2 - 20 / 2)
         stack.addChild(mid)
         
         nextLeftStartX = width + startLeftPoint
