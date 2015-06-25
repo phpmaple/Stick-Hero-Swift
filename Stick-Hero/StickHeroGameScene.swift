@@ -27,6 +27,8 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     let StackHeight:CGFloat = 400.0
     let StackMaxWidth:CGFloat = 300.0
     let StackMinWidth:CGFloat = 100.0
+    let gravity:CGFloat = -100.0
+    let StackGapMinWidth:Int = 80
     let HeroSpeed:CGFloat = 760
  
     var isBegin = false
@@ -122,24 +124,8 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             let action = SKAction.rotateToAngle(CGFloat(-M_PI / 2), duration: 0.4, shortestUnitArc: true)
             let playFall = SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.StickFallAudioName.rawValue, waitForCompletion: false)
             
-            stick.runAction(SKAction.sequence([SKAction.waitForDuration(0.2), action, playFall]), completion: { () -> Void in
-                let rightPoint = DefinedScreenWidth / 2 + stick.position.x + self.stickHeight
-                
-                guard rightPoint < self.nextLeftStartX else {
-                    self.heroGo(false)
-                    return
-                }
-                
-                var i = 0
-               
-                for node in self.children { // 同时碰到两个stack
-                    if (node.name == StickHeroGameSceneChildName.StackName.rawValue) {
-                        if (CGRectIntersectsRect(node.frame, stick.frame)) {
-                            i++;
-                        }
-                    }
-                }
-                self.heroGo(i >= 2)
+            stick.runAction(SKAction.sequence([SKAction.waitForDuration(0.2), action, playFall]), completion: {[unowned self] () -> Void in
+                self.heroGo(self.checkPass())
             })
         }
     }
@@ -153,10 +139,26 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         loadHero()
         
         let maxGap = Int(playAbleRect.width - StackMaxWidth - (leftStack?.frame.size.width)!)
-        let gap = CGFloat(randomInRange(80...maxGap))
+        let gap = CGFloat(randomInRange(StackGapMinWidth...maxGap))
         rightStack = loadStacks(false, startLeftPoint: nextLeftStartX + gap)
         
         gameOver = false
+    }
+    
+    private func checkPass() -> Bool {
+        let stick = childNodeWithName(StickHeroGameSceneChildName.StickName.rawValue) as! SKSpriteNode
+
+        let rightPoint = DefinedScreenWidth / 2 + stick.position.x + self.stickHeight
+        
+        guard rightPoint < self.nextLeftStartX else {
+            return false
+        }
+        
+        guard (CGRectIntersectsRect((leftStack?.frame)!, stick.frame) && CGRectIntersectsRect((rightStack?.frame)!, stick.frame)) else {
+            return false
+        }
+        
+        return true
     }
     
     private func heroGo(pass:Bool) {
@@ -215,7 +217,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             self.leftStack?.removeFromParent()
             
             let maxGap = Int(self.playAbleRect.width - (self.rightStack?.frame.size.width)! - self.StackMaxWidth)
-            let gap = CGFloat(randomInRange(80...maxGap))
+            let gap = CGFloat(randomInRange(self.StackGapMinWidth...maxGap))
             
             self.leftStack = self.rightStack
             self.rightStack = self.loadStacks(true, startLeftPoint:self.playAbleRect.origin.x + (self.rightStack?.frame.size.width)! + gap)
@@ -235,7 +237,7 @@ private extension StickHeroGameScene {
             let node = SKSpriteNode(texture: texture)
             node.size = texture.size()
             node.zPosition = StickHeroGameSceneZposition.BackgroundZposition.rawValue
-            self.physicsWorld.gravity = CGVectorMake(0, -100)
+            self.physicsWorld.gravity = CGVectorMake(0, gravity)
             
             addChild(node)
             return
