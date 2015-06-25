@@ -19,6 +19,7 @@ enum StickHeroGameSceneChildName : String {
     case StackMidName = "stack_mid"
     case ScoreName = "score"
     case TipName = "tip"
+    case PerfectName = "perfect"
 }
 
 enum StickHeroGameSceneActionKey: String {
@@ -43,5 +44,5 @@ enum StickHeroGameSceneZposition: CGFloat {
     case StackMidZposition = 35
     case StickZposition = 40
     case ScoreBackgroundZposition = 50
-    case HeroZposition, ScoreZposition, TipZposition = 100
+    case HeroZposition, ScoreZposition, TipZposition, PerfectZposition = 100
 }

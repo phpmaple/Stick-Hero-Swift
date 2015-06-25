@@ -167,6 +167,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         let newPoint = stackMid.convertPoint(CGPointMake(-10, 10), toNode: self)
         
         if ((stick.position.x + self.stickHeight) >= newPoint.x  && (stick.position.x + self.stickHeight) <= newPoint.x + 20) {
+            loadPerfect()
             self.runAction(SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.StickTouchMidAudioName.rawValue, waitForCompletion: false))
             score++
         }
@@ -313,6 +314,32 @@ private extension StickHeroGameScene {
         tip.horizontalAlignmentMode = .Center
     
         addChild(tip)
+    }
+    
+    func loadPerfect() {
+        defer {
+            let perfect = childNodeWithName(StickHeroGameSceneChildName.PerfectName.rawValue) as! SKLabelNode?
+            let sequence = SKAction.sequence([SKAction.fadeAlphaTo(1, duration: 0.3), SKAction.fadeAlphaTo(0, duration: 0.3)])
+            let scale = SKAction.sequence([SKAction.scaleTo(1.4, duration: 0.3), SKAction.scaleTo(1, duration: 0.3)])
+            perfect!.runAction(SKAction.group([sequence, scale]))
+        }
+
+        guard let _ = childNodeWithName(StickHeroGameSceneChildName.PerfectName.rawValue) as! SKLabelNode? else {
+            let perfect = SKLabelNode(fontNamed: "Arial")
+            perfect.text = "Perfect +1"
+            perfect.name = StickHeroGameSceneChildName.PerfectName.rawValue
+            perfect.position = CGPointMake(0, -100)
+            perfect.fontColor = SKColor.blackColor()
+            perfect.fontSize = 50
+            perfect.zPosition = StickHeroGameSceneZposition.PerfectZposition.rawValue
+            perfect.horizontalAlignmentMode = .Center
+            perfect.alpha = 0
+            
+            addChild(perfect)
+            
+            return
+        }
+       
     }
     
     func loadStick() -> SKSpriteNode {
