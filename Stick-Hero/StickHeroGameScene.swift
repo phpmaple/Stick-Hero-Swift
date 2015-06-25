@@ -16,7 +16,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
                 isBegin = false
                 isEnd = false
                 score = 0
-                nextLeftStartX = playAbleRect.origin.x
+                nextLeftStartX = 0
                 removeAllChildren()
                 start()
             }
@@ -135,9 +135,11 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         loadScoreBackground()
         loadScore()
         loadTip()
+ 
         leftStack = loadStacks(false, startLeftPoint: playAbleRect.origin.x)
+        self.removeMidTouch(false)
         loadHero()
-        
+ 
         let maxGap = Int(playAbleRect.width - StackMaxWidth - (leftStack?.frame.size.width)!)
         let gap = CGFloat(randomInRange(StackGapMinWidth...maxGap))
         rightStack = loadStacks(false, startLeftPoint: nextLeftStartX + gap)
@@ -158,7 +160,32 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             return false
         }
         
+        self.checkTouchMidStack()
+        
         return true
+    }
+    
+    private func checkTouchMidStack() {
+        let stick = childNodeWithName(StickHeroGameSceneChildName.StickName.rawValue) as! SKSpriteNode
+        let stackMid = rightStack!.childNodeWithName(StickHeroGameSceneChildName.StackMidName.rawValue) as! SKShapeNode
+        
+        let newPoint = stackMid.convertPoint(CGPointMake(-10, 10), toNode: self)
+        
+        if ((stick.position.x + self.stickHeight) >= newPoint.x  && (stick.position.x + self.stickHeight) <= newPoint.x + 20) {
+            self.runAction(SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.StickTouchMidAudioName.rawValue, waitForCompletion: false))
+            score++
+        }
+ 
+    }
+    
+    private func removeMidTouch(animate:Bool) {
+        let leftMid = leftStack?.childNodeWithName(StickHeroGameSceneChildName.StackMidName.rawValue) as! SKShapeNode
+        if (animate) {
+            leftMid.runAction(SKAction.fadeAlphaTo(0, duration: 0.15))
+        }
+        else {
+            leftMid.removeFromParent()
+        }
     }
     
     private func heroGo(pass:Bool) {
@@ -301,6 +328,8 @@ private extension StickHeroGameScene {
  
         if (animate) {
             stack.position = CGPointMake(DefinedScreenWidth / 2, -DefinedScreenHeight / 2 + height / 2)
+            
+            self.removeMidTouch(true)
             stack.runAction(SKAction.moveToX(-DefinedScreenWidth / 2 + width / 2 + startLeftPoint, duration: 0.3), completion: {[unowned self] () -> Void in
                 self.isBegin = false
                 self.isEnd = false
@@ -311,9 +340,18 @@ private extension StickHeroGameScene {
             stack.position = CGPointMake(-DefinedScreenWidth / 2 + width / 2 + startLeftPoint, -DefinedScreenHeight / 2 + height / 2)
         }
         addChild(stack)
- 
+        
+        let mid = SKShapeNode(rectOfSize: CGSizeMake(20, 20))
+        mid.fillColor = SKColor.redColor()
+        mid.strokeColor = SKColor.redColor()
+        mid.zPosition = StickHeroGameSceneZposition.StackMidZposition.rawValue
+        mid.name = StickHeroGameSceneChildName.StackMidName.rawValue
+        mid.position = CGPointMake(0, height / 2 - 20 / 2 - 1)
+        stack.addChild(mid)
+        
         nextLeftStartX = width + startLeftPoint
         
         return stack
     }
+    
 }
