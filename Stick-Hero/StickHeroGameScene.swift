@@ -12,13 +12,9 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver = false {
         willSet {
             if (newValue) {
-                //记录分数
-                isBegin = false
-                isEnd = false
-                score = 0
-                nextLeftStartX = 0
-                removeAllChildren()
-                start()
+                checkHighScoreAndStore()
+                let gameOverLayer = childNodeWithName(StickHeroGameSceneChildName.GameOverLayerName.rawValue) as SKNode?
+                gameOverLayer?.runAction(SKAction.moveDistance(CGVectorMake(0, 100), fadeInWithDuration: 0.2))
             }
             
         }
@@ -30,6 +26,8 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     let gravity:CGFloat = -100.0
     let StackGapMinWidth:Int = 80
     let HeroSpeed:CGFloat = 760
+    
+    let StoreScoreName = "com.stickHero.score"
  
     var isBegin = false
     var isEnd = false
@@ -39,7 +37,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     var nextLeftStartX:CGFloat = 0
     var stickHeight:CGFloat = 0
     
-    var score = 0 {
+    var score:Int = 0 {
         willSet {
             let scoreBand = childNodeWithName(StickHeroGameSceneChildName.ScoreName.rawValue) as? SKLabelNode
             scoreBand?.text = "\(newValue)"
@@ -83,6 +81,21 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard !gameOver else {
+            let gameOverLayer = childNodeWithName(StickHeroGameSceneChildName.GameOverLayerName.rawValue) as SKNode?
+
+            let location = touches.first?.locationInNode(gameOverLayer!)
+            let retry = gameOverLayer!.nodeAtPoint(location!)
+            
+        
+            if (retry.name == StickHeroGameSceneChildName.RetryButtonName.rawValue) {
+                retry.runAction(SKAction.sequence([SKAction.setTexture(SKTexture(imageNamed: "button_retry_down"), resize: false), SKAction.waitForDuration(0.3)]), completion: {[unowned self] () -> Void in
+                    self.restart()
+                })
+            }
+            return
+        }
+        
         if !isBegin && !isEnd {
             isBegin = true
             
@@ -99,6 +112,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             
             return
         }
+        
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -130,6 +144,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         loadScoreBackground()
         loadScore()
         loadTip()
+        loadGameOverLayer()
  
         leftStack = loadStacks(false, startLeftPoint: playAbleRect.origin.x)
         self.removeMidTouch(false, left:true)
@@ -140,6 +155,16 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
         rightStack = loadStacks(false, startLeftPoint: nextLeftStartX + gap)
         
         gameOver = false
+    }
+    
+    func restart() {
+        //记录分数
+        isBegin = false
+        isEnd = false
+        score = 0
+        nextLeftStartX = 0
+        removeAllChildren()
+        start()
     }
     
     private func checkPass() -> Bool {
@@ -203,7 +228,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
                 hero.physicsBody!.affectedByGravity = true
                 hero.runAction(SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.DeadAudioName.rawValue, waitForCompletion: false))
                 hero.removeActionForKey(StickHeroGameSceneActionKey.WalkAction.rawValue)
-                self.runAction(SKAction.waitForDuration(2), completion: {[unowned self] () -> Void in
+                self.runAction(SKAction.waitForDuration(0.5), completion: {[unowned self] () -> Void in
                     self.gameOver = true
                 })
             })
@@ -224,6 +249,37 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             hero.removeActionForKey(StickHeroGameSceneActionKey.WalkAction.rawValue)
             self.moveStackAndCreateNew()
         }
+    }
+    
+    private func checkHighScoreAndStore() {
+        let highScore = NSUserDefaults.standardUserDefaults().integerForKey(StoreScoreName)
+        if (score > Int(highScore)) {
+            showHighScore()
+            
+            NSUserDefaults.standardUserDefaults().setInteger(score, forKey: StoreScoreName)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
+    private func showHighScore() {
+        self.runAction(SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.HighScoreAudioName.rawValue, waitForCompletion: false))
+        
+        let wait = SKAction.waitForDuration(0.4)
+        let grow = SKAction.scaleTo(1.5, duration: 0.4)
+        grow.timingMode = .EaseInEaseOut
+        let explosion = starEmitterActionAtPosition(CGPointMake(0, 300))
+        let shrink = SKAction.scaleTo(1, duration: 0.2)
+       
+        let idleGrow = SKAction.scaleTo(1.2, duration: 0.4)
+        idleGrow.timingMode = .EaseInEaseOut
+        let idleShrink = SKAction.scaleTo(1, duration: 0.4)
+        let pulsate = SKAction.repeatActionForever(SKAction.sequence([idleGrow, idleShrink]))
+        
+        let gameOverLayer = childNodeWithName(StickHeroGameSceneChildName.GameOverLayerName.rawValue) as SKNode?
+        let highScoreLabel = gameOverLayer?.childNodeWithName(StickHeroGameSceneChildName.HighScoreName.rawValue) as SKNode?
+        highScoreLabel?.runAction(SKAction.sequence([wait, explosion, grow, shrink]), completion: { () -> Void in
+            highScoreLabel?.runAction(pulsate)
+        })
     }
     
     private func moveStackAndCreateNew() {
@@ -255,7 +311,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     }
 }
 
-//MARK: - 加载场景
+//MARK: - load node
 private extension StickHeroGameScene {
     func loadBackground() {
         guard let _ = childNodeWithName("background") as! SKSpriteNode? else {
@@ -392,5 +448,51 @@ private extension StickHeroGameScene {
         
         return stack
     }
+
+    func loadGameOverLayer() {
+        let node = SKNode()
+        node.alpha = 0
+        node.name = StickHeroGameSceneChildName.GameOverLayerName.rawValue
+        node.zPosition = StickHeroGameSceneZposition.GameOverZposition.rawValue
+        addChild(node)
+        
+        let label = SKLabelNode(fontNamed: "HelveticaNeue-Bold")
+        label.text = "Game Over"
+        label.fontColor = SKColor.redColor()
+        label.fontSize = 150
+        label.position = CGPointMake(0, 100)
+        label.horizontalAlignmentMode = .Center
+        node.addChild(label)
+        
+        let retry = SKSpriteNode(imageNamed: "button_retry_up")
+        retry.name = StickHeroGameSceneChildName.RetryButtonName.rawValue
+        retry.position = CGPointMake(0, -200)
+        node.addChild(retry)
+        
+        let highScore = SKLabelNode(fontNamed: "AmericanTypewriter")
+        highScore.text = "Highscore!"
+        highScore.fontColor = UIColor.whiteColor()
+        highScore.fontSize = 50
+        highScore.name = StickHeroGameSceneChildName.HighScoreName.rawValue
+        highScore.position = CGPointMake(0, 300)
+        highScore.horizontalAlignmentMode = .Center
+        highScore.setScale(0)
+        node.addChild(highScore)
+    }
     
+    //MARK: - Action
+    func starEmitterActionAtPosition(position: CGPoint) -> SKAction {
+        let emitter = SKEmitterNode(fileNamed: "StarExplosion")
+        emitter?.position = position
+        emitter?.zPosition = StickHeroGameSceneZposition.EmitterZposition.rawValue
+        emitter?.alpha = 0.6
+        addChild((emitter)!)
+        
+        let wait = SKAction.waitForDuration(0.15)
+
+        return SKAction.runBlock({ () -> Void in
+           emitter?.runAction(wait)
+        })
+    }
+
 }

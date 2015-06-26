@@ -20,6 +20,9 @@ enum StickHeroGameSceneChildName : String {
     case ScoreName = "score"
     case TipName = "tip"
     case PerfectName = "perfect"
+    case GameOverLayerName = "over"
+    case RetryButtonName = "retry"
+    case HighScoreName = "highscore"
 }
 
 enum StickHeroGameSceneActionKey: String {
@@ -36,6 +39,7 @@ enum StickHeroGameSceneEffectAudioName: String {
     case StickFallAudioName = "fall.wav"
     case StickTouchMidAudioName = "touch_mid.wav"
     case VictoryAudioName = "victory.wav"
+    case HighScoreAudioName = "highScore.wav"
 }
 
 enum StickHeroGameSceneZposition: CGFloat {
@@ -45,4 +49,6 @@ enum StickHeroGameSceneZposition: CGFloat {
     case StickZposition = 40
     case ScoreBackgroundZposition = 50
     case HeroZposition, ScoreZposition, TipZposition, PerfectZposition = 100
+    case EmitterZposition
+    case GameOverZposition
 }
