@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/badge/license-MIT%20License-lightgrey.svg)](https://github.com/phpmaple/Stick-Hero-Swift/blob/master/LICENSE)
 
 # Stick-Hero-Swift
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=56576f5c28898101003ae8c4&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/56576f5c28898101003ae8c4/build/latest)
+
 a universal iOS Game using Swift 2 and iOS SpriteKit.
 
 # Requirements
