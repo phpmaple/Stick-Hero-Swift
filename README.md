@@ -1,16 +1,16 @@
-<p align="center"><img src="http://share.koofrank.com/IMG_0604.PNG"></p>
+<p align="center"><img src="http://share.koofrank.com/IMG_3258.PNG"></p>
 
 [![Platform](https://img.shields.io/badge/platform-iOS-000000.svg)](http://cocoadocs.org/docsets)
 [![Language](https://img.shields.io/badge/language-Swift-orange.svg)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/badge/license-MIT%20License-lightgrey.svg)](https://github.com/phpmaple/Stick-Hero-Swift/blob/master/LICENSE)
 
 # Stick-Hero-Swift
-a universal iOS Game using Swift 2 and iOS SpriteKit.
+a universal iOS Game using Swift 2.3 and iOS SpriteKit.
 
 # Requirements
 
 - iOS 8.0+ 
-- Swift2
+- Swift2.3
 - Xcode 7.0 Beta
 
 # License
