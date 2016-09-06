@@ -1,4 +1,4 @@
-<p align="center"><img src="http://share.koofrank.com/IMG_3258.PNG"></p>
+<p align="center"><img src="http://share.koofrank.com/bg.png"></p>
 
 [![Platform](https://img.shields.io/badge/platform-iOS-000000.svg)](http://cocoadocs.org/docsets)
 [![Language](https://img.shields.io/badge/language-Swift-orange.svg)](https://developer.apple.com/swift/)
