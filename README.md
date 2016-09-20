@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT%20License-lightgrey.svg)](https://github.com/phpmaple/Stick-Hero-Swift/blob/master/LICENSE)
 
 # Stick-Hero-Swift
-a universal iOS Game using Swift 2.3 and iOS SpriteKit.
+a universal iOS Game using Swift 3 and iOS SpriteKit.
 
 # Requirements
 
