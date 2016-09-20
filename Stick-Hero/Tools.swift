@@ -9,13 +9,13 @@
 import UIKit
 import SpriteKit
 
-func randomInRange(range: Range<Int>) -> Int {
-    let count = UInt32(range.endIndex - range.startIndex)
-    return  Int(arc4random_uniform(count)) + range.startIndex
+func randomInRange(_ range: ClosedRange<Int>) -> Int {
+    let count = UInt32(range.upperBound - range.lowerBound)
+    return  Int(arc4random_uniform(count)) + range.lowerBound
 }
 
 extension UIColor {
-    class func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+    class func UIColorFromRGB(_ rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -26,15 +26,15 @@ extension UIColor {
 }
 
 extension SKAction {
-    class func moveDistance(distance:CGVector, fadeInWithDuration duration:NSTimeInterval) -> SKAction {
-        let fadeIn = SKAction.fadeInWithDuration(duration)
-        let moveIn = SKAction.moveBy(distance, duration: duration)
+    class func moveDistance(_ distance:CGVector, fadeInWithDuration duration:TimeInterval) -> SKAction {
+        let fadeIn = SKAction.fadeIn(withDuration: duration)
+        let moveIn = SKAction.move(by: distance, duration: duration)
         return SKAction.group([fadeIn, moveIn])
     }
     
-    class func moveDistance(distance:CGVector, fadeOutWithDuration duration:NSTimeInterval) -> SKAction {
-        let fadeOut = SKAction.fadeOutWithDuration(duration)
-        let moveOut = SKAction.moveBy(distance, duration: duration)
+    class func moveDistance(_ distance:CGVector, fadeOutWithDuration duration:TimeInterval) -> SKAction {
+        let fadeOut = SKAction.fadeOut(withDuration: duration)
+        let moveOut = SKAction.move(by: distance, duration: duration)
         return SKAction.group([fadeOut, moveOut])
     }
 }
