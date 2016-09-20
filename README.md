@@ -9,9 +9,9 @@ a universal iOS Game using Swift 2.3 and iOS SpriteKit.
 
 # Requirements
 
-- iOS 8.0+ 
-- Swift2.3
-- Xcode 7.0 Beta
+- iOS10
+- Swift3
+- Xcode8
 
 # License
 The MIT License (MIT)
