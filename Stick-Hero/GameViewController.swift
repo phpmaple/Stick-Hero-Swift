@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene = StickHeroGameScene(size:CGSizeMake(1536, 2048))
+        let scene = StickHeroGameScene(size:CGSize(width: DefinedScreenWidth, height: DefinedScreenHeight))
         
         // Configure the view.
         let skView = self.view as! SKView
@@ -27,13 +27,13 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         
         /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .aspectFill
         
         skView.presentScene(scene)
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         musicPlayer = setupAudioPlayerWithFile("bg_country", type: "mp3")
@@ -42,12 +42,12 @@ class GameViewController: UIViewController {
     }
     
     
-    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer  {
-        let url = NSBundle.mainBundle().URLForResource(file as String, withExtension: type as String)
+    func setupAudioPlayerWithFile(_ file:NSString, type:NSString) -> AVAudioPlayer  {
+        let url = Bundle.main.url(forResource: file as String, withExtension: type as String)
         var audioPlayer:AVAudioPlayer?
         
         do {
-            try audioPlayer = AVAudioPlayer(contentsOfURL: url!)
+            try audioPlayer = AVAudioPlayer(contentsOf: url!)
         } catch {
             print("NO AUDIO PLAYER")
         }
@@ -56,15 +56,15 @@ class GameViewController: UIViewController {
     }
 
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return .portrait
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }

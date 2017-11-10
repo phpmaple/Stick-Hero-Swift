@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730ED6DE1B3BA3DA0041F888 /* touch_mid.wav in Resources */ = {isa = PBXBuildFile; fileRef = 730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */; };
+		730ED6E01B3BA6FD0041F888 /* Defined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730ED6DF1B3BA6FD0041F888 /* Defined.swift */; };
+		731F6F4A1B3D001100B8D89A /* button_retry_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 731F6F481B3D001100B8D89A /* button_retry_up.png */; };
+		731F6F4C1B3D041600B8D89A /* button_retry_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 731F6F4B1B3D041600B8D89A /* button_retry_down.png */; };
+		731F6F501B3D095000B8D89A /* starParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = 731F6F4F1B3D095000B8D89A /* starParticle.png */; };
+		731F6F521B3D0E3B00B8D89A /* StarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 731F6F511B3D0E3B00B8D89A /* StarExplosion.sks */; };
+		731F6F581B3D17D000B8D89A /* highScore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 731F6F571B3D17D000B8D89A /* highScore.wav */; };
 		733263D81B33C592003A3B2F /* bg_country.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 733263D21B33C592003A3B2F /* bg_country.mp3 */; };
 		733263D91B33C592003A3B2F /* dead.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D31B33C592003A3B2F /* dead.wav */; };
 		733263DA1B33C592003A3B2F /* fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 733263D41B33C592003A3B2F /* fall.wav */; };
@@ -26,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = touch_mid.wav; sourceTree = "<group>"; };
+		730ED6DF1B3BA6FD0041F888 /* Defined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defined.swift; sourceTree = "<group>"; };
+		731F6F481B3D001100B8D89A /* button_retry_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_retry_up.png; sourceTree = "<group>"; };
+		731F6F4B1B3D041600B8D89A /* button_retry_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_retry_down.png; sourceTree = "<group>"; };
+		731F6F4F1B3D095000B8D89A /* starParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starParticle.png; sourceTree = "<group>"; };
+		731F6F511B3D0E3B00B8D89A /* StarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StarExplosion.sks; sourceTree = "<group>"; };
+		731F6F571B3D17D000B8D89A /* highScore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = highScore.wav; sourceTree = "<group>"; };
 		733263D21B33C592003A3B2F /* bg_country.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_country.mp3; sourceTree = "<group>"; };
 		733263D31B33C592003A3B2F /* dead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dead.wav; sourceTree = "<group>"; };
 		733263D41B33C592003A3B2F /* fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fall.wav; sourceTree = "<group>"; };
@@ -68,6 +82,8 @@
 		733263CE1B33C511003A3B2F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				731F6F4B1B3D041600B8D89A /* button_retry_down.png */,
+				731F6F481B3D001100B8D89A /* button_retry_up.png */,
 				73DBBA9B1B3913D00050C4EF /* stick_background.jpg */,
 				733263DE1B33C5E9003A3B2F /* human1.png */,
 				733263DF1B33C5E9003A3B2F /* human2.png */,
@@ -79,6 +95,8 @@
 		733263CF1B33C511003A3B2F /* Sks */ = {
 			isa = PBXGroup;
 			children = (
+				731F6F511B3D0E3B00B8D89A /* StarExplosion.sks */,
+				731F6F4F1B3D095000B8D89A /* starParticle.png */,
 			);
 			name = Sks;
 			path = Assets/Sks;
@@ -87,6 +105,8 @@
 		733263D01B33C511003A3B2F /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				731F6F571B3D17D000B8D89A /* highScore.wav */,
+				730ED6DD1B3BA3DA0041F888 /* touch_mid.wav */,
 				733263D21B33C592003A3B2F /* bg_country.mp3 */,
 				733263D31B33C592003A3B2F /* dead.wav */,
 				733263D41B33C592003A3B2F /* fall.wav */,
@@ -103,6 +123,7 @@
 			children = (
 				733263E61B33C68D003A3B2F /* StickHeroGameScene.swift */,
 				73DBBA9D1B39377D0050C4EF /* Tools.swift */,
+				730ED6DF1B3BA6FD0041F888 /* Defined.swift */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -175,11 +196,13 @@
 		73B7AD4F1B33BEC400115CAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = koofrank;
 				TargetAttributes = {
 					73B7AD561B33BEC400115CAD = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 2X7R4W3Y3Q;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -206,9 +229,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				731F6F521B3D0E3B00B8D89A /* StarExplosion.sks in Resources */,
+				730ED6DE1B3BA3DA0041F888 /* touch_mid.wav in Resources */,
 				733263DB1B33C592003A3B2F /* kick.wav in Resources */,
 				733263E11B33C5E9003A3B2F /* human2.png in Resources */,
 				733263D91B33C592003A3B2F /* dead.wav in Resources */,
+				731F6F501B3D095000B8D89A /* starParticle.png in Resources */,
 				733263D81B33C592003A3B2F /* bg_country.mp3 in Resources */,
 				73DBBA9C1B3913D00050C4EF /* stick_background.jpg in Resources */,
 				73B7AD691B33BEC400115CAD /* LaunchScreen.storyboard in Resources */,
@@ -218,6 +244,9 @@
 				73B7AD661B33BEC400115CAD /* Assets.xcassets in Resources */,
 				73B7AD641B33BEC400115CAD /* Main.storyboard in Resources */,
 				733263DD1B33C592003A3B2F /* victory.wav in Resources */,
+				731F6F581B3D17D000B8D89A /* highScore.wav in Resources */,
+				731F6F4C1B3D041600B8D89A /* button_retry_down.png in Resources */,
+				731F6F4A1B3D001100B8D89A /* button_retry_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +260,7 @@
 				73B7AD611B33BEC400115CAD /* GameViewController.swift in Sources */,
 				733263E71B33C68D003A3B2F /* StickHeroGameScene.swift in Sources */,
 				73B7AD5B1B33BEC400115CAD /* AppDelegate.swift in Sources */,
+				730ED6E01B3BA6FD0041F888 /* Defined.swift in Sources */,
 				73DBBA9E1B39377D0050C4EF /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,13 +295,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -293,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -310,13 +348,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -332,9 +378,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -344,10 +391,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2X7R4W3Y3Q;
 				INFOPLIST_FILE = "Stick-Hero/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-Hero";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -355,10 +405,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2X7R4W3Y3Q;
 				INFOPLIST_FILE = "Stick-Hero/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koofrank.ios.Stick-Hero";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
