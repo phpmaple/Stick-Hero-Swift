@@ -135,7 +135,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
             
             stickHeight = stick.size.height;
             
-            let action = SKAction.rotate(toAngle: CGFloat(-M_PI / 2), duration: 0.4, shortestUnitArc: true)
+            let action = SKAction.rotate(toAngle: CGFloat(-Double.pi / 2), duration: 0.4, shortestUnitArc: true)
             let playFall = SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.StickFallAudioName.rawValue, waitForCompletion: false)
             
             stick.run(SKAction.sequence([SKAction.wait(forDuration: 0.2), action, playFall]), completion: {[unowned self] () -> Void in
@@ -231,7 +231,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
 
             hero.run(walkAction, withKey: StickHeroGameSceneActionKey.WalkAction.rawValue)
             hero.run(move, completion: {[unowned self] () -> Void in
-                stick.run(SKAction.rotate(toAngle: CGFloat(-M_PI), duration: 0.4))
+                stick.run(SKAction.rotate(toAngle: CGFloat(-Double.pi), duration: 0.4))
                 
                 hero.physicsBody!.affectedByGravity = true
                 hero.run(SKAction.playSoundFileNamed(StickHeroGameSceneEffectAudioName.DeadAudioName.rawValue, waitForCompletion: false))
