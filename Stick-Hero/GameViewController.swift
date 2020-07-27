@@ -12,6 +12,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     var musicPlayer:AVAudioPlayer!
+    var gameScene : StickHeroGameScene?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,5 +67,15 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden : Bool {
         return true
+    }
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+            let alert = UIAlertController(title: "Restart Game", message: "You just shook the device. Do you wish to restart your game?", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+                self.viewDidLoad()
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
     }
 }

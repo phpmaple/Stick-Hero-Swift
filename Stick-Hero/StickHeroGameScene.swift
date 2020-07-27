@@ -84,7 +84,7 @@ class StickHeroGameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         start()
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard !gameOver else {
             let gameOverLayer = childNode(withName: StickHeroGameSceneChildName.GameOverLayerName.rawValue) as SKNode?
